@@ -55,11 +55,11 @@ export default async function Home({ params }: PageProps) {
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-br from-foreground to-foreground/50 bg-clip-text text-transparent pb-2">
                             <TextReveal text={dict.home.heroTitle} className="justify-center" />
                         </h1>
-                        <div className="animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
+                        <SlideReveal delay={0.5}>
                             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                                 {dict.home.heroDesc}
                             </p>
-                        </div>
+                        </SlideReveal>
                     </div>
 
                     <SlideReveal delay={0.8} className="flex flex-col sm:flex-row gap-4 pt-4">
