@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
 import { Logo } from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface HeaderProps {
     lang: Locale;
@@ -12,7 +13,7 @@ export function Header({ lang }: HeaderProps) {
     const dict = getDictionary(lang);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md flex justify-center items-center">
             <div className="container flex h-16 items-center justify-between px-4 md:px-6">
                 <Link href={`/${lang}`} className="block">
                     <Logo />
@@ -35,6 +36,7 @@ export function Header({ lang }: HeaderProps) {
                     </Link>
                 </nav>
                 <div className="flex items-center gap-4">
+                    <ThemeToggle />
                     <Link
                         href={lang === "en" ? `/id` : `/en`}
                         className="text-xs font-semibold uppercase text-muted-foreground hover:text-foreground"

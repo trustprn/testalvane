@@ -7,7 +7,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 export function Section({ children, className, container = true, ...props }: SectionProps) {
     return (
         <section
-            className={cn("py-16 md:py-24 relative overflow-hidden", className)}
+            className={cn("py-16 md:py-24 relative overflow-hidden flex justify-center items-center", className)}
             {...props}
         >
             {container ? (

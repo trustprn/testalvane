@@ -27,7 +27,7 @@ interface ServicesPreviewProps {
 
 export function ServicesPreview({ title, subtitle, cards, cta, lang }: ServicesPreviewProps) {
     return (
-        <Section className="bg-secondary/5">
+        <Section className="bg-secondary/5 flex justify-center items-center">
             <div className="text-center mb-16 space-y-4">
                 <SlideReveal>
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{title}</h2>

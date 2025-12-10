@@ -24,7 +24,7 @@ interface PortfolioSectionProps {
 
 export function PortfolioSection({ title, subtitle, viewAll, projects, lang }: PortfolioSectionProps) {
     return (
-        <Section>
+        <Section className="flex justify-center items-center">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div className="space-y-4">
                     <SlideReveal>

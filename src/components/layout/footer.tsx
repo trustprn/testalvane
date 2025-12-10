@@ -6,7 +6,7 @@ export function Footer({ lang }: { lang: Locale }) {
     const dict = getDictionary(lang);
 
     return (
-        <footer className="w-full border-t bg-background/50 py-12">
+        <footer className="w-full border-t bg-background/50 py-12 flex justify-center items-center">
             <div className="container px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <p className="text-xs text-muted-foreground text-center md:text-left">
                     © {new Date().getFullYear()} {dict.footer.rights}

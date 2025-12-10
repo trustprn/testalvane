@@ -31,7 +31,7 @@ export function PortfolioGrid({ title, subtitle, projects, lang }: PortfolioGrid
         : projects.filter((p) => p.category === filter);
 
     return (
-        <section className="container px-6 md:px-12 lg:px-24 py-12 md:py-24">
+        <section className="flex justify-center items-center container px-6 md:px-12 lg:px-24 py-12 md:py-24">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                 <div className="space-y-4 max-w-2xl">
                     <motion.h1 

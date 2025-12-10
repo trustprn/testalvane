@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { i18n, type Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
 import { Header } from "@/components/layout/header";
@@ -57,13 +58,20 @@ export default async function RootLayout({
     const { lang } = await params;
 
     return (
-        <html lang={lang} className="dark">
+        <html lang={lang} suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
             >
-                <Header lang={lang as Locale} />
-                <main className="flex-1">{children}</main>
-                <Footer lang={lang as Locale} />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <Header lang={lang as Locale} />
+                    <main className="flex-1">{children}</main>
+                    <Footer lang={lang as Locale} />
+                </ThemeProvider>
             </body>
         </html>
     );

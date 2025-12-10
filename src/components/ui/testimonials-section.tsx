@@ -18,7 +18,7 @@ interface TestimonialsSectionProps {
 
 export function TestimonialsSection({ title, subtitle, items }: TestimonialsSectionProps) {
     return (
-        <Section className="bg-secondary/5 relative overflow-hidden">
+        <Section className="bg-secondary/5 relative overflow-hidden flex justify-center items-center">
              {/* Background decoration */}
              <div className="absolute top-0 right-0 p-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 

@@ -46,8 +46,51 @@
 }
 
 :root {
+  /* Premium Light Theme Defaults */
+  --background: oklch(0.98 0.01 260);
+  --foreground: oklch(0.10 0.02 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.10 0.02 260);
+ 
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.10 0.02 260);
+ 
+  /* Primary: Deep Purple for Light Mode visibility */
+  --primary: oklch(0.55 0.22 280);
+  --primary-foreground: oklch(0.98 0 0);
+ 
+  --secondary: oklch(0.96 0.01 260);
+  --secondary-foreground: oklch(0.20 0.05 260);
+ 
+  --muted: oklch(0.96 0.01 260);
+  --muted-foreground: oklch(0.40 0.05 260);
+ 
+  --accent: oklch(0.96 0.01 260);
+  --accent-foreground: oklch(0.20 0.05 260);
+ 
+  --destructive: oklch(0.6 0.2 20);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.90 0.02 260);
+  --input: oklch(0.90 0.02 260);
+  --ring: oklch(0.55 0.22 280);
+
+  --radius: 0.5rem;
+
+  --sidebar: oklch(0.98 0.01 260);
+  --sidebar-foreground: oklch(0.20 0.05 260);
+  --sidebar-primary: oklch(0.55 0.22 280);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.96 0.01 260);
+  --sidebar-accent-foreground: oklch(0.20 0.05 260);
+  --sidebar-border: oklch(0.90 0.02 260);
+  --sidebar-ring: oklch(0.55 0.22 280);
+}
+
+.dark {
   /* Dark Cinematic Theme Defaults */
-  --background: oklch(0.05 0.01 260); /* Deep dark background */
+  --background: oklch(0.05 0.01 260); 
   --foreground: oklch(0.98 0 0);
   
   --card: oklch(0.10 0.02 260);
@@ -66,7 +109,6 @@
   --muted: oklch(0.15 0.02 260);
   --muted-foreground: oklch(0.70 0 0);
   
-  /* Accent: Neon */
   --accent: oklch(0.25 0.10 280);
   --accent-foreground: oklch(0.98 0 0);
   
@@ -75,9 +117,7 @@
   --border: oklch(0.20 0.05 260);
   --input: oklch(0.20 0.05 260);
   --ring: oklch(0.65 0.22 280);
-  
-  --radius: 0.5rem;
-  
+
   /* Sidebar/Chart defaults (aligned with dark) */
   --sidebar: oklch(0.10 0.02 260);
   --sidebar-foreground: oklch(0.98 0 0);

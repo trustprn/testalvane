@@ -22,7 +22,7 @@ const icons = [BarChart3, Palette, Zap, CheckCircle2];
 
 export function WhyChooseUs({ title, subtitle, items }: WhyChooseUsProps) {
     return (
-        <Section className="bg-muted/30">
+        <Section className="bg-muted/30 flex justify-center items-center">
             <div className="flex flex-col items-center text-center mb-16">
                 <SlideReveal>
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h2>
