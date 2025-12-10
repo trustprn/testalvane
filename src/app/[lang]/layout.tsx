@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     const meta = dict.meta.home;
 
     return {
+        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://alvanestudio.com'),
         title: meta.title,
         description: meta.description,
         keywords: meta.keywords,
