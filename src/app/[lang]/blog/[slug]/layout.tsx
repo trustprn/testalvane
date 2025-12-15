@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
-import { constructMetadata } from "@/lib/seo";
 
 type Props = {
     params: Promise<{ lang: string; slug: string }>;
@@ -17,13 +16,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     const title = slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + " | Alvane Blog";
     const desc = dict.meta.blogDetail.description;
 
-    return constructMetadata({
+    return {
         title: title,
         description: desc,
-        image: dict.meta.blogDetail.ogImage,
-        lang: lang as Locale,
-        slug: `blog/${slug}`,
-    });
+        openGraph: {
+            title: title,
+            description: desc,
+            images: [dict.meta.blogDetail.ogImage],
+            locale: lang,
+            type: "article",
+        },
+        alternates: {
+            canonical: `${dict.meta.blogDetail.canonical}/${slug}`,
+        },
+    };
 }
 
 export default async function BlogPostLayout({ children, params }: Props) {
