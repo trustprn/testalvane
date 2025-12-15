@@ -4,6 +4,7 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { i18n, type Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
+import { constructMetadata } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -22,26 +23,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     const dict = getDictionary(lang as Locale);
     const meta = dict.meta.home;
 
-    return {
-        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://alvanestudio.com'),
+    return constructMetadata({
         title: meta.title,
         description: meta.description,
-        keywords: meta.keywords,
-        openGraph: {
-            title: meta.ogTitle,
-            description: meta.ogDescription,
-            images: [meta.ogImage],
-            locale: lang,
-            type: "website",
-        },
-        alternates: {
-            canonical: meta.canonical,
-            languages: {
-                'en': '/en',
-                'id': '/id',
-            },
-        },
-    };
+        image: meta.ogImage,
+        lang: lang as Locale,
+    });
 }
 
 export async function generateStaticParams() {

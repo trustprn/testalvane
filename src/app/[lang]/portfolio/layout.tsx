@@ -1,6 +1,7 @@
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
 import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -11,19 +12,13 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     const { lang } = await params;
     const dict = getDictionary(lang);
 
-    return {
+    return constructMetadata({
         title: dict.meta.portfolio.title,
         description: dict.meta.portfolio.description,
-        keywords: dict.meta.portfolio.keywords,
-        alternates: {
-            canonical: dict.meta.portfolio.canonical,
-        },
-        openGraph: {
-            title: dict.meta.portfolio.ogTitle,
-            description: dict.meta.portfolio.ogDescription,
-            images: [dict.meta.portfolio.ogImage],
-        },
-    };
+        image: dict.meta.portfolio.ogImage,
+        lang: lang,
+        slug: 'portfolio',
+    });
 }
 
 export default function PortfolioLayout({

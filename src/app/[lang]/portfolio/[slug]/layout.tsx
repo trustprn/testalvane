@@ -1,6 +1,7 @@
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
 import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -22,15 +23,13 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         };
     }
 
-    return {
+    return constructMetadata({
         title: `${project.title} | Alvane Agency`,
         description: project.description,
-        openGraph: {
-            title: `${project.title} - Case Study`,
-            description: project.description,
-            images: [project.image],
-        },
-    };
+        image: project.image,
+        lang: lang,
+        slug: `portfolio/${slug}`,
+    });
 }
 
 export default function ProjectLayout({

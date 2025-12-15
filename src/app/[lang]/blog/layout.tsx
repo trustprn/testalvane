@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
+import { constructMetadata } from "@/lib/seo";
 
 type Props = {
     params: Promise<{ lang: string }>;
@@ -12,20 +13,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     const dict = getDictionary(lang as Locale);
     const meta = dict.meta.blog;
 
-    return {
+    return constructMetadata({
         title: meta.title,
         description: meta.description,
-        openGraph: {
-            title: meta.ogTitle,
-            description: meta.ogDescription,
-            images: [meta.ogImage],
-            locale: lang,
-            type: "website",
-        },
-        alternates: {
-            canonical: meta.canonical,
-        },
-    };
+        image: meta.ogImage,
+        lang: lang as Locale,
+        slug: 'blog',
+    });
 }
 
 export default async function BlogLayout({ children, params }: Props) {
